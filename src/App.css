@@ -15,7 +15,7 @@ header {
   grid-area: "header";
   display: flex;
   padding: 0 2rem;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 header nav ul {
@@ -34,12 +34,16 @@ ul li :visited {
 main {
   grid-area: "main";
 
-  overflow: hidden;
+  /* overflow: hidden; */
+  overflow: scroll;
 }
 footer {
-  grid-area: footer;
+  grid-area: "footer";
 
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#options {
 }

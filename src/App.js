@@ -10,6 +10,8 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import EventPlanner from "./pages/EventPlanner";
+import Farmer from "./pages/Farmer";
+import Traveler from "./pages/Traveler";
 
 function App() {
   return (
@@ -21,8 +23,8 @@ function App() {
         <Route path="/callback" element={<Callback />} />
         <Route path="/music-playlist" element={<MusicPlaylist />} />
         <Route path="/event-planner" element={<EventPlanner />} />
-        {/* <Route path="/farmer" element={<Farmer />} />
-        <Route path="/traveler" element={<Traveler />} /> */}
+        <Route path="/farmer" element={<Farmer />} />
+        <Route path="/traveler" element={<Traveler />} />
       </Route>
     </Routes>
   );

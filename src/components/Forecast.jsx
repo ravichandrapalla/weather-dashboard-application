@@ -3,29 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Box, Card, CardContent, Typography, Grid, Paper } from "@mui/material";
 import moment from "moment";
 
-export default function Forecast() {
-  const [forecast, setForecast] = useState(null);
-  const [loading, setLoading] = useState(null);
-
-  useEffect(() => {
-    setLoading(true);
-    axios
-      .get(
-        "https://api.openweathermap.org/data/2.5/forecast?q=Tanuku&appid=586f02715bbd15fc8dac2aa749d82516"
-      )
-      .then((resp) => {
-        console.log(resp.data);
-        const { city, list } = resp.data;
-        const data = { ...city, list };
-        setForecast(data);
-      })
-      .catch((error) => {
-        console.error("There was an error fetching the forecast data!", error);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, []);
+export default function Forecast({ forecast, loading }) {
   const kelvinToCelsius = (temp) => (temp - 273.15).toFixed(2);
   return (
     <Box sx={{ padding: "20px" }}>

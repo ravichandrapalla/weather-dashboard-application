@@ -1,10 +1,9 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
 import { Typography, Card, CardContent, Grid, Paper } from "@mui/material";
+import { useLocation } from "react-router";
 import CurrentWeather from "./../components/CurrentWeather";
 import Forecast from "../components/Forecast";
-
-const EventPlanner = () => {
+const Traveler = ({ weatherData }) => {
   const location = useLocation();
   const { currentWeather, forecast, weatherLoading, foreCastLoading } =
     location.state || {};
@@ -20,12 +19,12 @@ const EventPlanner = () => {
         loading={weatherLoading}
       />
       <Forecast forecast={forecast} loading={foreCastLoading} />
-      <Typography variant="h4" gutterBottom style={{ marginLeft: 16 }}>
-        Event Planner
+      <Typography variant="h4" gutterBottom>
+        Traveler's Weather Guide
       </Typography>
       <Paper elevation={3} style={{ padding: 16 }}>
         <Typography variant="h5" gutterBottom>
-          Today's Weather for Your Event
+          Current Weather for Travel
         </Typography>
         <Typography variant="body1">
           {currentWeather.weather[0].description}
@@ -34,15 +33,15 @@ const EventPlanner = () => {
 
       <Paper elevation={3} style={{ padding: 16, marginTop: 16 }}>
         <Typography variant="h5" gutterBottom>
-          Personal Stories
+          Travel Stories
         </Typography>
         <Typography variant="body1">
-          "The weather forecast saved our outdoor wedding from a potential
-          disaster!"
+          "We avoided a storm thanks to the weather forecast, making our trip
+          unforgettable."
         </Typography>
       </Paper>
     </div>
   );
 };
 
-export default EventPlanner;
+export default Traveler;

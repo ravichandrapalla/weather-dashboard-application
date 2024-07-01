@@ -6,7 +6,7 @@ const Header = () => {
     <header>
       <h1>Weather Dashboard</h1>
       <nav>
-        <ul>
+        {/* <ul>
           <li>
             <Link to="/event-planner">Event Planner</Link>
           </li>
@@ -16,7 +16,7 @@ const Header = () => {
           <li>
             <Link to="/traveler">Traveler</Link>
           </li>
-        </ul>
+        </ul> */}
       </nav>
     </header>
   );

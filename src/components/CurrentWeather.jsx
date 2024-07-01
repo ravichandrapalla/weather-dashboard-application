@@ -3,27 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Box, Card, CardContent, Typography, Grid, Paper } from "@mui/material";
 import moment from "moment";
 
-export default function CurrentWeather() {
-  const [currentWeather, setCurrentWeather] = useState(null);
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    setLoading(true);
-    axios
-      .get(
-        `http://api.openweathermap.org/data/2.5/weather?q=Tanuku,in&APPID=586f02715bbd15fc8dac2aa749d82516`
-      )
-      .then((response) => {
-        setCurrentWeather(response.data);
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.error("There was an error fetching the weather data!", error);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, []);
+export default function CurrentWeather({ currentWeather, loading }) {
   return (
     <Box sx={{ padding: "20px" }}>
       {loading ? (
@@ -79,29 +59,3 @@ export default function CurrentWeather() {
     </Box>
   );
 }
-
-/*  <Grid item xs={12} md={6}>
-              <Card sx={{ background: "#f0f0f0", height: "100%" }}>
-                <CardContent>
-                  <Typography variant="h4" component="div" gutterBottom>
-                    Current Weather
-                  </Typography>
-                  <Typography variant="h6" component="div">
-                    {Math.round(currentWeather.main.temp - 273.15)}°C
-                  </Typography>
-                  <Typography variant="h6" component="div">
-                    Feels Like{" "}
-                    {Math.round(currentWeather.main.feels_like - 273.15)}°C
-                  </Typography>
-                  <Typography variant="body1" component="div">
-                    {currentWeather.weather[0].description}
-                  </Typography>
-                  <Typography variant="body2" component="div">
-                    Humidity: {currentWeather.main.humidity}%
-                  </Typography>
-                  <Typography variant="body2" component="div">
-                    Wind: {currentWeather.wind.speed} km/h
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>  */
